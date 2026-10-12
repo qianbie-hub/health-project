@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://health-project-wnqk.vercel.app/api/$1"
+    }
+  ]
+}
