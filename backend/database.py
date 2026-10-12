@@ -3,7 +3,8 @@ from sqlalchemy import create_engine, event
 from sqlalchemy.orm import declarative_base, sessionmaker
 from config import settings
 
-database_url = settings.DATABASE_URL
+# CHANGE: Force Vercel to prioritize its own environment variables, falling back to local settings
+database_url = os.getenv("DATABASE_URL") or settings.DATABASE_URL
 
 # PostgreSQL URL compatibility (if postgres:// is provided instead of postgresql://)
 if database_url.startswith("postgres://"):
