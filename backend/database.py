@@ -4,7 +4,7 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 from config import settings
 
 # CHANGE: Force Vercel to prioritize its own environment variables, falling back to local settings
-database_url = os.getenv("DATABASE_URL") or settings.DATABASE_URL
+database_url = os.getenv("DATABASE_URL") or "sqlite:////tmp/health.db"
 
 # PostgreSQL URL compatibility (if postgres:// is provided instead of postgresql://)
 if database_url.startswith("postgres://"):
